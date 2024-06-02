@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # List all directories under 'build' and ask the user to choose one
 echo "Available directories under 'build':"
@@ -23,10 +23,10 @@ find "$SRC_DIR" -type f -name 'tact_*.ts' | while read -r FILEPATH; do
     # Extract the filename without the path and extension
     FILENAME=$(basename -- "$FILEPATH")
     BASENAME="${FILENAME%.*}"
-    
+
     # Define the new file path
     NEW_FILE="$DEST_DIR/${DIR_NAME}_${BASENAME#tact_}.ts"
-    
+
     # Write the export statement to the new file
     echo "export * from '../$SRC_DIR/${BASENAME}';" > "$NEW_FILE"
 done

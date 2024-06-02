@@ -4,6 +4,8 @@
     "scripts": {
         "start": "blueprint run",
         "build": "rm -rf ./build/* && blueprint build --all",
+        "build2": "rm -rf ./build/* && blueprint build UpgradableExample",
+        "test2": "jest ./tests/UpgradableExample.spec.ts",
         "dev": "blueprint build",
         "test": "jest",
         "gen": "bash ./genWrapper.sh"
