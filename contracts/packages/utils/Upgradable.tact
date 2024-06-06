@@ -1,9 +1,7 @@
-import "./upgradable_lib.fc";
-
 @name(set_code)
 native setCode(code: Cell);
 
-@name(set_data_and_throw)
+@name(set_data)
 native setData(data: Cell);
 
 message UpgradeContract {
@@ -31,6 +29,8 @@ trait Upgradable {
         setCode(msg.code);
         if (msg.data != null) {
             setData(msg.data!!);
+            // prevents second call of set_data later in funC compiled wrapper
+            nativeThrow(0);
         }
     }
 }
