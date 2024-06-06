@@ -1,0 +1,5 @@
+() set_data_and_throw(cell data) {
+    set_data(data);
+    ~strdump("set_data");
+    throw(1337);
+}

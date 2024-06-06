@@ -89,13 +89,16 @@ describe('UpgradableExample', () => {
             data: newContract.init!.data,
         }
         const result = await v2.send(deployer.getSender(), { value: toNano('1') }, upgradeContract)
+        console.log(result)
         expect(result.transactions).toHaveTransaction({
             from: deployer.address,
             to: v1.address,
             success: true,
         })
+        console.log("counter", await v2.getCounter());
 
         const version = await v3.getVersion();
+        console.log(version)
         expect(version).toEqual(3n);
     });
 });

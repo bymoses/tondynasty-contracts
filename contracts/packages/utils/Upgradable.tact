@@ -1,7 +1,9 @@
+import "./upgradable_lib.fc";
+
 @name(set_code)
 native setCode(code: Cell);
 
-@name(set_data)
+@name(set_data_and_throw)
 native setData(data: Cell);
 
 message UpgradeContract {
